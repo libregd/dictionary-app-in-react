@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
 
         <ul className="nav col-md-4 justify-content-end list-unstyled d-flex me-3">
-          <li className="ms-3"><a className="text-muted" href="#"><i className="bi bi-github"></i></a></li>
+          <li className="ms-3"><a className="text-muted" href="https://github.com/libregd/dictionary-app-in-react"><i className="bi bi-github"></i></a></li>
         </ul>
       </footer>
     </>
