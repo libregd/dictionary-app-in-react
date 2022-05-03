@@ -11,17 +11,20 @@ const Select = ({ mean }) => {
   let partOf = [];
   let partContent = [];
   coreInfo.map(extract => {
-    extract.map(x => {
-      let item = {}
-      item.part = x.partOfSpeech
-      item.def = x.definitions
-      item.anton = x.antonyms
-      item.synon = x.synonyms
-      partContent.push(item)
+    return extract.forEach(x => {
 
-      if (partOf.includes(x.partOfSpeech) == false) {
-        partOf.push(x.partOfSpeech)
-      }
+        let item = {}
+        item.part = x.partOfSpeech
+        item.def = x.definitions
+        item.anton = x.antonyms
+        item.synon = x.synonyms
+        partContent.push(item)
+  
+        if (partOf.includes(x.partOfSpeech) === false) {
+          partOf.push(x.partOfSpeech)
+        }
+
+
     }
     )
   })
@@ -32,12 +35,12 @@ const Select = ({ mean }) => {
     let examples = []
     let antonyms = []
     let synonyms = []
-    partContent.map(x => {
-      if (x.part == part) {
+    partContent.forEach(x => {
+      if (x.part === part) {
         antonyms = x.anton;
         synonyms = x.synon;
         for (let index = 0; index < x.def.length; index++) {
-          if (x.def[index].example != undefined) {
+          if (x.def[index].example !== undefined) {
             const element = x.def[index].example;
             examples.push(element)
           }
