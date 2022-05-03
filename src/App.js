@@ -8,22 +8,42 @@ const App =()=> {
   const [main, setMain] = useState([]);
   const [audio, setAudio] = useState();
 
-  const dataApi = async () => {
-    const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-    const dataJ = await data.json();
-    setMean(dataJ);
-    // console.log(dataJ);
-    setMain(dataJ[0]);
-    // console.log(dataJ[0]);
-    const url = dataJ[0].phonetics[0].audio;
-    setAudio(url);
-  };
+  // const dataApi = async () => {
+  //   const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+  //   const dataJ = await data.json();
+  //   setMean(dataJ);
+  //   // console.log(dataJ);
+  //   setMain(dataJ[0]);
+  //   // console.log(dataJ[0]);
+  //   const url = dataJ[0].phonetics[0].audio;
+  //   setAudio(url);
+  // };
   useEffect(() => {
+    const dataApi = async () => {
+      const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      const dataJ = await data.json();
+      setMean(dataJ);
+      // console.log(dataJ);
+      setMain(dataJ[0]);
+      // console.log(dataJ[0]);
+      const url = dataJ[0].phonetics[0].audio;
+      setAudio(url);
+    };
     dataApi();
   }, []);
 
 
   const Search = () => {
+    const dataApi = async () => {
+      const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      const dataJ = await data.json();
+      setMean(dataJ);
+      // console.log(dataJ);
+      setMain(dataJ[0]);
+      // console.log(dataJ[0]);
+      const url = dataJ[0].phonetics[0].audio;
+      setAudio(url);
+    };
     dataApi();
     setWord("");
   };
